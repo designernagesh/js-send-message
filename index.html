@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Send Message</title>  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+</head>
+<body style="padding: 20px">
+    <div class="container text-center d-flex justify-content-center align-items-center flex-column" style="height: 100vh">
+
+<h1 class="text-danger mb-4">Message you would <br> <span class="display-1">Like to Send</span></h1>
+
+<div>    
+    <input type="text" placeholder="Write your Message" class="form-control-lg" />
+</div>
+
+<button class="btn btn-sm btn-danger my-4">Send Message</button>
+
+<div id="showMsg">
+  <p style="margin:0">Last message Delivered</p>
+  <h5 id="msg-delivered"></h5>
+</div>
+
+</div>
+<script>            
+    var btn=document.querySelector("button")
+    var input = document.querySelector("input")
+    var msgDelivered =document.getElementById("msg-delivered")    
+    var p = document.querySelector("p")
+
+    p.style.display = 'none'
+    btn.style.textTransform = 'uppercase'
+    btn.addEventListener('click', sendMessage)
+
+    function sendMessage(){      
+      if(input.value){
+        p.style.display = 'block'
+        msgDelivered.innerHTML = input.value
+      }
+      else{
+        alert('Please, write some Message!')
+      }
+      input.value = ''
+
+      //setTimeout(() => document.getElementById('showMsg').remove(), 3000);
+    }    
+</script>
+</body>
+</html>
