@@ -1,49 +1,41 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Send Message</title>  
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <meta charset="UTF-8">
+  <title>Javascript: Send Message</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@700;800;900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body style="padding: 20px">
-    <div class="container text-center d-flex justify-content-center align-items-center flex-column" style="height: 100vh">
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <h1 class="display-3 text-danger">Message to Send</h1>
+      <p class="lead">Click the button to send a Message 🙂!</p>      
 
-<h1 class="text-danger mb-4">Message you would <br> <span class="display-1">Like to Send</span></h1>
+      <div class="text-center mt-5">
+          <div class="error"></div>
+          <input type="text" placeholder="Write your Message" class="form-control-lg" />
+          <br>
+          <button class="btn btn-danger my-4">Send Message</button>
+      </div>      
 
-<div>    
-    <input type="text" placeholder="Write your Message" class="form-control-lg" />
+      <div id="showMsg">
+        <p style="margin:0">Last message delivered:</p>
+        <h5 id="msg-delivered"></h5>
+      </div>
+
+    </div>
 </div>
-
-<button class="btn btn-sm btn-danger my-4">Send Message</button>
-
-<div id="showMsg">
-  <p style="margin:0">Last message Delivered</p>
-  <h5 id="msg-delivered"></h5>
-</div>
-
-</div>
-<script>            
-    var btn=document.querySelector("button")
-    var input = document.querySelector("input")
-    var msgDelivered =document.getElementById("msg-delivered")    
-    var p = document.querySelector("p")
-
-    p.style.display = 'none'
-    btn.style.textTransform = 'uppercase'
-    btn.addEventListener('click', sendMessage)
-
-    function sendMessage(){      
-      if(input.value){
-        p.style.display = 'block'
-        msgDelivered.innerHTML = input.value
-      }
-      else{
-        alert('Please, write some Message!')
-      }
-      input.value = ''
-
-      //setTimeout(() => document.getElementById('showMsg').remove(), 3000);
-    }    
-</script>
+<script src="script.js"></script>
 </body>
 </html>
